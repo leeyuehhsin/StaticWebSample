@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+  color: #ffffff;
+  background-color: #0a0a0a;
+}
+
+/* 画面全体に敷く背景レイヤー */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background-image: url('images/pachitto.png');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.15) contrast(1.05);
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease, transform 6s ease;
+  z-index: -2;
+}
+
+/* ★穴埋め：{ } の中に、下の2行をそのまま追加してください
+   opacity: 1;
+   transform: scale(1);
+*/
+.bg-layer.show {
+
+}
+
+/* 背景の上に重ねる、雰囲気を出すグラデーション */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(10, 0, 10, 0.9) 0%, rgba(10, 0, 10, 0.35) 45%, rgba(10, 0, 10, 0.55) 100%),
+    linear-gradient(120deg, rgba(139, 0, 0, 0.35), rgba(75, 0, 130, 0.35));
+}
+
+.content {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 0 24px 8vh;
+  animation: rise 1.2s ease 0.3s both;
+}
+
+.series-label {
+  font-family: "Cinzel", serif;
+  font-size: clamp(16px, 2.4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #f0e0c0;
+  margin-bottom: 18px;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+
+.catch {
+  font-size: clamp(36px, 7vw, 84px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  background: linear-gradient(180deg, #fff4c2 0%, #ffd700 45%, #b8860b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 24px rgba(255, 180, 0, 0.35);
+  filter: drop-shadow(0 0 18px rgba(255, 200, 0, 0.4));
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
