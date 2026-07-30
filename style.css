@@ -37,7 +37,8 @@ body {
    transform: scale(1);
 */
 .bg-layer.show {
-
+   opacity: 1;
+   transform: scale(1);
 }
 
 /* 背景の上に重ねる、雰囲気を出すグラデーション */
