@@ -9,6 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // 背景を表示状態にする（フェードイン用のクラスを付与）
   requestAnimationFrame(() => {
     // ★穴埋め：下の1行を、コメントを外してそのまま追加してください
-    //bg.classList.add('show');
+    bg.classList.add('show');
   });
 });
